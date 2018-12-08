@@ -78,7 +78,7 @@ public class Main extends Application {
         stage.setScene(GUI.mainMenu());
         stage.setResizable(false);
         stage.sizeToScene();
-        stage.setFullScreen(true);
+        stage.setFullScreen(false);
         stage.setTitle(gameTitle);
         stage.getIcons().add(new Image("/com/royalslothking/anothergame/assets/application/icon.png"));
         stage.setOnCloseRequest(e ->  exit());

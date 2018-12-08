@@ -17,7 +17,7 @@ public class Console {
         Scanner s = new Scanner(System.in);
         System.out.print("> ");
         String in = s.nextLine();
-        Matcher commandPlayerspeed = Pattern.compile("^playerspeed ([0-9.]+)$").matcher(in);
+        Matcher commandPlayerspeed = Pattern.compile("^playerspeed ([0-9]+(.[0-9]+)?)$").matcher(in);
         Matcher commandHelp = Pattern.compile("^help").matcher(in);
         if(commandPlayerspeed.find()){
             try {
