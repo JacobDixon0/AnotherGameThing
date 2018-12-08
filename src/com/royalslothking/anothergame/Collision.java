@@ -1,4 +1,4 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 public class Collision {
 

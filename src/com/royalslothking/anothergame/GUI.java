@@ -1,4 +1,4 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,14 +13,14 @@ import java.util.ArrayList;
 
 public class GUI {
 
-    private static ImageView guiOverlay = new ImageView(new Image("/com/royalslothking/csgeneral/assets/gui/gui0.png"));
+    private static ImageView guiOverlay = new ImageView(new Image("/com/royalslothking/anothergame/assets/gui/gui1.png"));
 
     private static Rectangle menuGenericBG = new Rectangle(0, 0, Main.WINDOW_SIZE_X, Main.WINDOW_SIZE_Y);
-    private static ImageView menuGenericAE = new ImageView(new Image("/com/royalslothking/csgeneral/assets/gui/genericMenu.png"));
+    private static ImageView menuGenericAE = new ImageView(new Image("/com/royalslothking/anothergame/assets/gui/genericMenu.png"));
     private static Rectangle menuGenericS1 = new Rectangle(591, 312, 97, 97);
     private static Rectangle menuGenericS2 = new Rectangle(826, 312, 97, 97);
 
-    private static ImageView inventoryMenuAE = new ImageView(new Image("/com/royalslothking/csgeneral/assets/gui/inventoryMenu.png"));
+    private static ImageView inventoryMenuAE = new ImageView(new Image("/com/royalslothking/anothergame/assets/gui/inventoryMenu.png"));
 
     private static ImageView hotbarSlot1;
     private static ImageView hotbarSlot2;
@@ -37,7 +37,7 @@ public class GUI {
         Main.root.getChildren().add(guiOverlay);
         activeStaticElements.add(guiOverlay);
 
-        double hotbarX = 429.0;
+        double hotbarX = 438.0;
         double hotbarY = 635.0;
         double hotbarItemSize = 80.0;
         double hotbarItemBuffer = 6.0;
@@ -110,15 +110,17 @@ public class GUI {
         Pane root = new Pane();
         Scene scene = new Scene(root, Main.WINDOW_SIZE_X, Main.WINDOW_SIZE_Y);
 
-        ImageView bg = new ImageView(new Image("/com/royalslothking/csgeneral/assets/application/mainMenuBG.png"));
+        scene.getStylesheets().add("/com/royalslothking/anothergame/assets/gui/style.css");
+
+        ImageView bg = new ImageView(new Image("/com/royalslothking/anothergame/assets/application/mainMenuBG.png"));
 
         Button btn = new Button("Start");
-        btn.setLayoutX(Main.WINDOW_SIZE_X / 2);
-        btn.setLayoutY(Main.WINDOW_SIZE_Y / 2);
+        btn.setLayoutX(Main.WINDOW_SIZE_X / 2 - 25);
+        btn.setLayoutY(Main.WINDOW_SIZE_Y / 2 - 30);
         btn.setOnAction(e -> Main.stage.setScene(Main.getScene()));
 
         Button btn2 = new Button("Exit");
-        btn2.setLayoutX(Main.WINDOW_SIZE_X / 2);
+        btn2.setLayoutX(Main.WINDOW_SIZE_X / 2 - 25);
         btn2.setLayoutY(Main.WINDOW_SIZE_Y / 2 + 30);
         btn2.setOnAction(e -> Main.exit());
 

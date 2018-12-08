@@ -1,4 +1,4 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,15 +13,15 @@ public class Thing {
     private Direction rotation;
     private boolean rotatable = false;
 
-    private static Image defaultSprite = new Image("/com/royalslothking/csgeneral/assets/textures/objects/block.png");
+    private static Image defaultSprite = new Image("/com/royalslothking/anothergame/assets/textures/objects/block.png");
 
-    private static Image beltSprite = new Image("/com/royalslothking/csgeneral/assets/textures/objects/belt.png");
-    private static Image beltSpriteR = new Image("/com/royalslothking/csgeneral/assets/textures/objects/beltR.png");
-    private static Image beltSpriteL = new Image("/com/royalslothking/csgeneral/assets/textures/objects/beltL.png");
-    private static Image beltSpriteU = new Image("/com/royalslothking/csgeneral/assets/textures/objects/beltU.png");
-    private static Image beltSpriteD = new Image("/com/royalslothking/csgeneral/assets/textures/objects/beltD.png");
+    private static Image beltSprite = new Image("/com/royalslothking/anothergame/assets/textures/objects/belt.png");
+    private static Image beltSpriteR = new Image("/com/royalslothking/anothergame/assets/textures/objects/beltR.png");
+    private static Image beltSpriteL = new Image("/com/royalslothking/anothergame/assets/textures/objects/beltL.png");
+    private static Image beltSpriteU = new Image("/com/royalslothking/anothergame/assets/textures/objects/beltU.png");
+    private static Image beltSpriteD = new Image("/com/royalslothking/anothergame/assets/textures/objects/beltD.png");
 
-    private double beltSpeed = 20.0;
+    private double beltSpeed = 10.0;
 
     enum ThingType{
         NONE, GENERIC, ITEM, BELT

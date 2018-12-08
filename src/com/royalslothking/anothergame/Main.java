@@ -1,10 +1,10 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 /*
  *  Author: Jacob Dixon @jacobrdixon.com
  *  Date: 6/12/2018
  *
- *  If you are not Jacob Dixon please leave, thx.
+ *  If you are not Jacob Dixon, please leave, thx.
  *
  */
 
@@ -52,12 +52,12 @@ public class Main extends Application {
 
     public static double[] origin = {0, 0};
 
-    public static Image playerSprite = new Image("/com/royalslothking/csgeneral/assets/sprites/player/player.png");
+    public static Image playerSprite = new Image("/com/royalslothking/anothergame/assets/sprites/player/player.png");
     public static Player player = new Player(WINDOW_SIZE_X / 2 - (playerSprite.getWidth() / 2), Math.round(WINDOW_SIZE_Y / 2 - (playerSprite.getHeight() / 2)), playerSprite);
 
     public static ArrayList<Object> mapObjects = new ArrayList<>();
 
-    private static Image zeroMarkerIMG = new Image("/com/royalslothking/csgeneral/assets/textures/objects/what.png");
+    private static Image zeroMarkerIMG = new Image("/com/royalslothking/anothergame/assets/textures/objects/what.png");
     private static Thing zeroMarker = new Thing(0, 0, zeroMarkerIMG);
 
     public static boolean inMenu = false;
@@ -75,14 +75,14 @@ public class Main extends Application {
 
         stage = primaryStage;
 
-        primaryStage.setScene(GUI.mainMenu());
-        primaryStage.setResizable(false);
-        primaryStage.sizeToScene();
-        primaryStage.setFullScreen(false);
-        primaryStage.setTitle(gameTitle);
-        primaryStage.getIcons().add(new Image("/com/royalslothking/csgeneral/assets/application/icon.png"));
-        primaryStage.setOnCloseRequest(e ->  exit());
-        primaryStage.show();
+        stage.setScene(GUI.mainMenu());
+        stage.setResizable(false);
+        stage.sizeToScene();
+        stage.setFullScreen(true);
+        stage.setTitle(gameTitle);
+        stage.getIcons().add(new Image("/com/royalslothking/anothergame/assets/application/icon.png"));
+        stage.setOnCloseRequest(e ->  exit());
+        stage.show();
 
     }
 
@@ -119,8 +119,8 @@ public class Main extends Application {
         root.getChildren().add(fpsDisplay);
         root.getChildren().add(player);
 
-        scene.getStylesheets().add("/com/royalslothking/csgeneral/assets/gui/style.css");
-        scene.setCursor(new ImageCursor(new Image("/com/royalslothking/csgeneral/assets/gui/cursor0.png")));
+        scene.getStylesheets().add("/com/royalslothking/anothergame/assets/gui/style.css");
+        scene.setCursor(new ImageCursor(new Image("/com/royalslothking/anothergame/assets/gui/cursor0.png")));
 
         scene.setOnKeyPressed(e -> {
             keys.put(e.getCode(), true);

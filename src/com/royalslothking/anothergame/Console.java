@@ -1,4 +1,4 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -9,7 +9,7 @@ public class Console {
     public static void open(){
 
         if(!Main.allowCommands){
-            Main.pushMsg("Commands are not enabled.");
+            Main.pushMsg("Commands are not enabled.", 0);
             return;
         }
 
@@ -17,7 +17,7 @@ public class Console {
         Scanner s = new Scanner(System.in);
         System.out.print("> ");
         String in = s.nextLine();
-        Matcher commandPlayerspeed = Pattern.compile("^playerspeed ([0-9a-z]+)$").matcher(in);
+        Matcher commandPlayerspeed = Pattern.compile("^playerspeed ([0-9.]+)$").matcher(in);
         Matcher commandHelp = Pattern.compile("^help").matcher(in);
         if(commandPlayerspeed.find()){
             try {
@@ -27,7 +27,7 @@ public class Console {
                 System.out.println("\"" + commandPlayerspeed.group(1) + "\"" + " is not a number.");
             }
         }else if(commandHelp.find()){
-
+            System.out.println("playerspeed [double] - Changes the players speed when moving.");
         } else{
             System.out.println("\"" + in + "\"" + " is not a valid command");
         }

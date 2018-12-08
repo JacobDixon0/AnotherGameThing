@@ -1,4 +1,4 @@
-package com.royalslothking.csgeneral;
+package com.royalslothking.anothergame;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,12 +26,12 @@ public class Player extends ImageView {
     private static Item thing = new Item("Default Thing", Thing.ThingType.NONE, 0);
     private static Item belt = new Item("Belt", Thing.ThingType.BELT, 1);
 
-    public Item[] inventory = {null, thing, belt, null, null, null};
+    public Item[] inventory = {null, thing, belt, thing, belt, null};
     private static int selectedSlot = 1;
 
     private static Direction selectedRotation = Direction.NONE;
 
-    private static ImageView selectedGridSquare = new ImageView(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlock.png"));
+    private static ImageView selectedGridSquare = new ImageView(new Image("com/royalslothking/anothergame/assets/gui/selectedBlock.png"));
 
     Player(double x, double y, Image sprite){
         this.setX(x);
@@ -67,7 +67,7 @@ public class Player extends ImageView {
                 isMovingLeft = true;
                 isMoving = true;
 
-                this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerL.png"));
+                this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerL.png"));
 
             } else if (Collision.isCollidingRight(this) == null && Main.isPressed(KeyCode.D)) {
 
@@ -75,7 +75,7 @@ public class Player extends ImageView {
                 isMovingRight = true;
                 isMoving = true;
 
-                this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerR.png"));
+                this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerR.png"));
             }
 
             if (Collision.isCollidingTop(this) == null && Main.isPressed(KeyCode.W)) {
@@ -85,11 +85,11 @@ public class Player extends ImageView {
                 isMoving = true;
 
                 if (isMovingLeft) {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerUL.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerUL.png"));
                 } else if (isMovingRight) {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerUR.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerUR.png"));
                 } else {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerU.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerU.png"));
                 }
 
             } else if (Collision.isCollidingBottom(this) == null && Main.isPressed(KeyCode.S)) {
@@ -98,11 +98,11 @@ public class Player extends ImageView {
                 isMovingDown = true;
                 isMoving = true;
                 if (isMovingLeft) {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerDL.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerDL.png"));
                 } else if (isMovingRight) {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerDR.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerDR.png"));
                 } else {
-                    this.setImage(new Image("/com/royalslothking/csgeneral/assets/sprites/player/playerD.png"));
+                    this.setImage(new Image("/com/royalslothking/anothergame/assets/sprites/player/playerD.png"));
                 }
             }
 
@@ -254,15 +254,15 @@ public class Player extends ImageView {
         if(selectedSlot != 0) {
 
             if(selectedRotation == Direction.NONE){
-                selectedGridSquare.setImage(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlock.png"));
+                selectedGridSquare.setImage(new Image("com/royalslothking/anothergame/assets/gui/selectedBlock.png"));
             }else if(selectedRotation == Direction.RIGHT){
-                selectedGridSquare.setImage(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlockR.png"));
+                selectedGridSquare.setImage(new Image("com/royalslothking/anothergame/assets/gui/selectedBlockR.png"));
             }else if(selectedRotation == Direction.LEFT){
-                selectedGridSquare.setImage(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlockL.png"));
+                selectedGridSquare.setImage(new Image("com/royalslothking/anothergame/assets/gui/selectedBlockL.png"));
             }else if(selectedRotation == Direction.UP){
-                selectedGridSquare.setImage(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlockU.png"));
+                selectedGridSquare.setImage(new Image("com/royalslothking/anothergame/assets/gui/selectedBlockU.png"));
             }else if(selectedRotation == Direction.DOWN){
-                selectedGridSquare.setImage(new Image("com/royalslothking/csgeneral/assets/gui/selectedBlockD.png"));
+                selectedGridSquare.setImage(new Image("com/royalslothking/anothergame/assets/gui/selectedBlockD.png"));
             }
 
             selectedGridSquare.setX(Main.mapBlockToGrid(x, y)[0]);
@@ -278,17 +278,14 @@ public class Player extends ImageView {
 
     public void onKeyPressed(KeyCode key){
 
-        if(Main.inMenu){
-            return;
-        }
-
         if(key == KeyCode.F1){
             Console.open();
         }
 
         if(key == KeyCode.E){
-            GUI.exitMenu();
-            GUI.playerInventoryMenu();
+            if(Main.inMenu) {
+                GUI.exitMenu();
+            }else GUI.playerInventoryMenu();
         }
 
         if(key == KeyCode.R){
