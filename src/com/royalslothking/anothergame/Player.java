@@ -11,7 +11,7 @@ public class Player extends ImageView {
 
     private Image sprite;
 
-    public static double playerSpeed = 20.0;
+    public double playerSpeed = 20.0;
 
     public double vX;
     public double vY;
@@ -23,10 +23,10 @@ public class Player extends ImageView {
 
     public static boolean isMoving;
 
-    private static Item thing = new Item("Default Thing", Thing.ThingType.NONE, 0);
-    private static Item belt = new Item("Belt", Thing.ThingType.BELT, 1);
+    public static Item thing = new Item("Default Thing", Thing.ThingType.NONE, 0);
+    public static Item belt = new Item("Belt", Thing.ThingType.BELT, 1);
 
-    public Item[] inventory = {null, thing, belt, thing, belt, null};
+    public Item[] inventory = {null, thing, belt, null, null, null};
     private static int selectedSlot = 1;
 
     private static Direction selectedRotation = Direction.NONE;

@@ -55,6 +55,13 @@ public class GUI {
         }
     }
 
+    public static void rmStaticGUI(){
+        for(Node ase : activeStaticElements){
+            Main.root.getChildren().remove(ase);
+        }
+        activeStaticElements.clear();
+    }
+
     public static void sgToFront(){
         for(Node ase : activeStaticElements){
             ase.toFront();

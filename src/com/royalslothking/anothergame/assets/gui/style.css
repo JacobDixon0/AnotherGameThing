@@ -10,8 +10,8 @@
     -fx-font-size: 10pt;
     -fx-min-width: 100px;
     -fx-max-width: 100px;
-    -fx-min-height: 50px;
-    -fx-max-height: 50px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
 }
 
 .button:hover{
